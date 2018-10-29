@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Energy Community Dapp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+</head>
+<body>
+  <div id="header">
+    <h1>Energy Community Dapp</h1>
+    <br><span id="status"></span>
+    <br>
+    <br>
+  </div>
+  <div id="subheaderIzq">
+    
+    <p> Total # of SCP tokens: &nbsp;<span class="black"><span id="numberOfSCPTokens"></span></span></p>
+    <p> # of SCP tokens remaining: <span class="black"><span id="numberOfSCPTokensRemaining"></span></span></p>
+  </div>
+  <div id="subheaderCenter">
+    <p> 1 EC coins = <span class="black"><span id="priceOfECCoins"></span> €</span></p>
+    <p> 1 SCP token = <span class="black"><span id="priceOfSCPTokens"></span> EC</span></p>
+  </div>
+  <div id="subheaderRight">
+    <button id="start" onclick="App.startSimulation()">START</button>
+    <button id="stop" onclick="App.stopSimulation()">STOP</button>
+    <button id="reset" onclick="App.resetSimulation()">RESET</button>
+    <br>
+    <p> Contracted Power = <span class="black"><span id="ContPowerComm"></span> kW</span></p>
+
+
+
+  </div>
+   
+    
+ 
+
+  <!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="App.openTab(event, 'Owner')">Owner</button>
+  <button class="tablinks" onclick="App.openTab(event, 'User')">User</button>
+  <button class="tablinks" onclick="App.openTab(event, 'Events')">Events</button>
+  <button class="tablinks" onclick="App.openTab(event, 'Graphs')">Graphs</button>
+</div>
+
+<!-- Tab content -->
+<div id="Owner" class="tabcontent">
+  
+    <div id="body">
+
+      <div id="left">
+        <h3>Mint SCP tokens</h3>
+        <input type="text" id="amount" placeholder="amount: "></input>
+        <input type="text" id="priceSCP" placeholder="price in EC: "></input>
+        <button id="send1" onclick="App.mintSCPTokens()">Mint SCP tokens</button>
+
+        <h3>Set price of EC coins</h3>
+        <input type="text" id="priceEC" placeholder="New price in €: "></input>
+        <button id="send2" onclick="App.setPriceOfECCoins()">Set price of EC coins</button>
+
+        <h3>Add new user</h3>
+        <input type="text" id="userAddress" placeholder="User address: "></input>
+        <input type="text" id="id" placeholder="id: "></input>
+        <button id="send" onclick="App.addNewUser()">Add user</button>
+
+        <h3>Add new smart meter</h3>
+        <input type="text" id="smartMeterid" placeholder="id: "></input>
+        <input type="text" id="smartMeterType" placeholder="bool: "></input>
+        <input type="text" id="SMfromUser" placeholder="from user: "></input>
+        <button id="send" onclick="App.addNewSmartMeter()">Add SM</button>
+
+        <h3>define DSO address</h3>
+        <input type="text" id="DSOAddress" placeholder="DSO address: "></input>
+        <button id="send" onclick="App.defineDSO()">Apply</button>
+
+        <h3>Withdraw from Smart Contract</h3>
+        <button id="send3" onclick="App.withdraw()">Withdraw</button>
+
+        <h3>Burn EC coins</h3>
+        <input type="text" id="burnEC" placeholder="Quantity to burn: "></input>
+        <button id="send4" onclick="App.burnECCOins()">Burn EC</button>
+
+        <h3>Burn SCP tokens</h3>
+        <input type="text" id="burnSCP" placeholder="Quantity to burn: "></input>
+        <button id="send4" onclick="App.burnSCPTokens()">Burn SCP</button>
+      </div>
+
+
+      <div id="rightTop">
+        <h3>You have <span class="black"><span id="balanceECOwner"></span> EC coins</span></h3>
+        <h3>You have <span class="black"><span id = "balanceSCPOwner"></span> SCP tokens</span></h3>
+      </div>
+
+
+      <div id="rightBottom">
+       <h3>Power contracted options:</h3>
+        <p> Price contracted Power = <span class="black"><span id="ContPowerPrice"></span> €/kW day</span></p>
+        <input type="text" id="PowerContracted" placeholder="Cont. Power (kW): "></input>
+        <input type="text" id="pricePower" placeholder="Price €/kW day: "></input>
+        <button id="send" onclick="App.setContractedPower()">Apply</button>
+        <br><br>
+        <p> max power = <span class="black"><span id="maxPowerInOrOut"></span> kW </span></p>
+
+      </div>
+  </div>
+
+</div>
+
+
+
+<div id="User" class="tabcontent">
+  <div id="body">
+
+    <div id="left">
+      <h2>USER <span id="user"></span></h2>
+      <br><select id="userList" onchange="App.userChange()">
+        <option selected value="0"> Choose one option </option>
+        <option value="1"> User 1 </option>
+        <option value="2"> User 2 </option>
+        <option value="3"> User 3 </option>
+      </select>
+
+      <p> Number of users = <span class="black"><span id="usersLength"></span></span></p>
+      <p> Number of Smart Meters = <span class="black"><span id="numberOfSM"></span></span></p>
+
+      <h3>Buy EC coins</h3>
+      <input type="text" id="numberECToBuy" placeholder="# EC coins to buy: "></input>
+      <button id="send2" onclick="App.buyECCoins()">Buy</button>
+      <h3>Buy SCP tokens</h3>
+      <input type="text" id="numberSCPToBuy" placeholder="# SCP tokens to buy: "></input>
+      <button id="send2" onclick="App.buySCPTokens()">Buy</button>
+      <h3>Give permission to buy SCP to other user: </h3>
+      <input type="text" id="addressTo" placeholder="give permission to address:  "></input>
+      <input type="text" id="numberSCPToGive" placeholder="# SCP tokens to give: "></input>
+      <button id="send2" onclick="App.givePermission()">Give permission</button>
+      <h3>Buy SCP from other user</h3>
+      <input type="text" id="addressFrom" placeholder="Buy from address:  "></input>
+      <input type="text" id="numberSCPToBuyFromUser" placeholder="# SCP tokens to buy: "></input>
+      <button id="send2" onclick="App.buySCPTokensFromOtherUser()">Buy</button>
+
+    </div>
+
+    <div id="rightTop">
+      <h3>You have <span class="black"><span id="balanceECUser"></span> EC coins</span></h3>
+      <h3>You have <span class="black"><span id = "balanceSCPUser"></span> SCP tokens</span></h3>
+    </div>
+
+    <div id="rightBottom">
+      <p>Balance Instantaneo user 1: <span id="balanceInstantaneo1"></span> EC</p>
+      <p>Balance Instantaneo user 2: <span id="balanceInstantaneo2"></span> EC</p>
+      <p>Balance Instantaneo user 3: <span id="balanceInstantaneo3"></span> EC</p>
+
+      <p>Balance Instantaneo DSO: <span id="balanceInstantaneoDSO"></span> EC</p>
+      <button id="send2" onclick="App.liquidationOfTransactions()">liquidate</button>
+      <br>
+      <h3>Get measurements of a smart meter</h3>
+        <input type="text" id="idSMToShow" placeholder="id of SM: "></input>
+        <button id="send" onclick="App.getMeasurementsOfASmartMeter()">get measurements</button>
+        <span class="black">Measurements of SM <span id="idOfSm"></span>: <br><span id="measurementsOfSM"></span></span>
+        <br>
+
+    </div>
+  </div>
+  
+</div>
+
+<div id="Events" class="tabcontent">
+  <h3>Events</h3>
+  <p><span id="events"></span> </p>
+  <ul type="1" id="listEvents">
+    
+  </ul>
+  
+</div>
+
+<div id="Graphs" class="tabcontent">
+  <div id="body">
+    <h3>Plots</h3>
+    <input type="text" id="idUSERToShow" placeholder="id of user: "></input>
+    <input type="text" id="fromh" placeholder="from hour: "></input>
+    <input type="text" id="toh" placeholder="to hour: "></input>
+    <button id="send" onclick="App.plot()">plot</button>
+    <br> <br>
+    <span class="black">Current hour: <span id="currentHour"></span></span>
+    
+     
+    <div class="chart-container" style="position: relative; height:80vh; width:80vw">
+      <canvas id="demand"></canvas>
+    </div>
+  
+    <div class="chart-container" style="position: relative; height:80vh; width:80vw">
+      <canvas id="commPVBat"></canvas>
+    </div>
+    <div class="chart-container" style="position: relative; height:80vh; width:80vw">>
+      <canvas id="economictransactions"></canvas>
+    </div>
+    <div class="chart-container" style="position: relative; height:80vh; width:80vw">
+      <canvas id="instBal"></canvas>
+    </div>
+    
+
+
+  </div>
+</div>
+
+
+</body>
+</html>
+
+

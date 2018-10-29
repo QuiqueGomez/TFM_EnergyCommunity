@@ -1,0 +1,173 @@
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  font-family: "Open Sans", sans-serif;
+}
+
+div#header{
+  height: 50px;
+}
+
+div#subheaderIzq{
+  float: left;
+  height: 100px;
+  width: 33%;
+}
+
+div#subheaderCenter{
+  float: left;
+  height: 100px;
+  width: 33%;
+}
+
+div#subheaderRight{
+  height: 100px;
+}
+
+div#body{
+  height: 500px;
+}
+
+div#left{
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+div#leftTop{
+  float: left;
+  width: 50%;
+  height: 300px;
+}
+
+div#leftBottom{
+  float: left;
+  width: 50%;
+  height: 50%;
+}
+
+div#rightTop{
+  float: right;
+  width: 50%;
+  height: 300px;
+}
+
+div#rightBottom{
+  float: right;
+  width: 50%;
+  height: 50%;
+}
+
+div#text{
+  width: 250px;
+  background-color: red;
+}
+
+div#instance{
+  float:right;
+  background-color: green;
+}
+
+tab1{
+  padding-left: 10px;
+}
+
+label {
+  display: inline-block;
+  width:300;
+}
+
+p{
+  width: auto;
+  color: #AAA;
+
+}
+
+input {
+  width: 110px;
+  padding: 5px;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+button {
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+h1, h2 {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #AAA;
+  font-size: 32px;
+}
+
+h3 {
+  font-weight: normal;
+  color: #AAA;
+  font-size: 24px;
+}
+
+.long{
+  width: 500px;
+}
+
+.short{
+  width: 100px;
+}
+
+.black {
+  color: black;
+}
+
+#balance {
+  color: black;
+}
+
+.hint {
+  color: #666;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button.hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 3px 6px;
+    border: 1px solid #ccc;
+    border-top: none;
+    height: 1000px;
+}
